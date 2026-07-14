@@ -150,38 +150,71 @@
 // })
 
 /* Advance Level */
-function breakTheText(){
-    var h1 = document.querySelector("h1");
-    var h1Text = h1.textContent;
-    var splittedText = h1Text.split("");
-    var halfValue = splittedText.length/2;
-    var clutter = "";
+// function breakTheText(){
+//     var h1 = document.querySelector("h1");
+//     var h1Text = h1.textContent;
+//     var splittedText = h1Text.split("");
+//     var halfValue = splittedText.length/2;
+//     var clutter = "";
 
-    splittedText.forEach(function(elem,idx){
-        if (idx<halfValue){
-            clutter += `<span class="a">${elem}</span>`
-        }else{
-              clutter += `<span class="b">${elem}</span>`
+//     splittedText.forEach(function(elem,idx){
+//         if (idx<halfValue){
+//             clutter += `<span class="a">${elem}</span>`
+//         }else{
+//               clutter += `<span class="b">${elem}</span>`
+//         }
+//     })
+
+//     h1.innerHTML = clutter;
+// }
+
+// breakTheText()
+
+// gsap.from("h1 .a",{
+//     y:100,
+//     duration:1,
+//     delay:0.5,
+//     stagger:0.15,
+//     opactity:0,
+// })
+
+// gsap.from("h1 .b",{
+//     y:100,
+//     duration:1,
+//     delay:0.5,
+//     stagger:-0.15,
+//     opactity:0,
+// })
+
+
+/*  ================== video 7 ================== */
+function marqueAnimation() {
+    window.addEventListener("wheel", function (dets) {
+        if (dets.deltaY < 0) {
+            gsap.to(".marque", {
+                transform: "translateX(-200%)",
+                duration: 4,
+                repeat: -1,
+                ease: "none",
+            })
+
+            gsap.to(".marque i", {
+                rotate: 180,
+            })
+
+        } else {
+            gsap.to(".marque", {
+                transform: "translateX(0%)",
+                duration: 4,
+                repeat: -1,
+                ease: "none",
+            })
+
+            gsap.to(".marque i", {
+                rotate: 0,
+            })
         }
     })
-
-    h1.innerHTML = clutter;
 }
 
-breakTheText()
-
-gsap.from("h1 .a",{
-    y:100,
-    duration:1,
-    delay:0.5,
-    stagger:0.15,
-    opactity:0,
-})
-
-gsap.from("h1 .b",{
-    y:100,
-    duration:1,
-    delay:0.5,
-    stagger:-0.15,
-    opactity:0,
-})
+marqueAnimation();
